@@ -4,6 +4,16 @@ from app import db, login
 from flask_login import UserMixin
 
 #Table for the User.
+"""
+Database Classes for both User table and Posts table
+pk-->primary Key
+fk-->Foreign Key 
+Classes
+ User():
+    Columns: (Id(pk), username, email, password, posts(fk))
+Posts():
+ Columns: (ID(pk), body, timestamp, userid(fk)) 
+"""
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -24,6 +34,7 @@ class User(UserMixin, db.Model):
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
+
 #Table for the Post
 
 class Post(db.Model):
