@@ -10,9 +10,12 @@ pk-->primary Key
 fk-->Foreign Key 
 Classes
  User():
-    Columns: (Id(pk), username, email, password, posts(fk))
+    Columns: (userId(pk), username, email, password, postsId(fk))
 Posts():
- Columns: (ID(pk), body, timestamp, userid(fk)) 
+    Columns: (postId(pk), body, timestamp, userId(fk)) 
+  
+  Function to call on this database
+
 """
 
 class User(UserMixin, db.Model):
@@ -36,6 +39,9 @@ def load_user(id):
     return User.query.get(int(id))
 
 #Table for the Post
+"""
+    
+"""
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
