@@ -25,6 +25,8 @@ def index():
      ]
       return render_template('index.html',title='Home ', posts=posts)
 
+# login function
+# Get and Post requests to the database   
 @app.route('/login', methods=['GET', 'POST'])
 def login():
      if current_user.is_authenticated:
