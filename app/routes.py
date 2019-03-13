@@ -44,12 +44,13 @@ def login():
          return redirect(next_page)
      return render_template('login.html', title='Sign In', form=form)
 
+#function for logout 
 @app.route('/logout')
 def logout():
      logout_user()
      return redirect(url_for('index'))
 
-
+# function to register a new user
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
