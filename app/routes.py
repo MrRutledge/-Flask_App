@@ -26,7 +26,16 @@ def index():
       return render_template('index.html',title='Home ', posts=posts)
 
 # login function
-# Get and Post requests to the database   
+# Get and Post requests to the database 
+"""
+Login function 
+     if the user is authenticated it 
+          returns the index page 
+     Otherwise We enter our details in the login form 
+     if the details entered are valid 
+     we can proceed 
+     otherwise we have to resubmit 
+"""  
 @app.route('/login', methods=['GET', 'POST'])
 def login():
      if current_user.is_authenticated:
